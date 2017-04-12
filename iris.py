@@ -1,3 +1,5 @@
+# Please make sure scikit-learn is included the conda_dependencies.yml file.
+
 from sklearn.datasets import load_iris
 from sklearn.linear_model import LogisticRegression
 import pickle
