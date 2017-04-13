@@ -1,0 +1,9 @@
+# Conda environment specification. The dependencies defined in this file will be
+# automatically provisioned for each run unless environment management is disabled.
+
+# For frameworks that can't be installed by Conda, see base_dependencies.yml.
+
+name: project_environment
+dependencies:
+  - python=3.5.2
+  - scikit-learn

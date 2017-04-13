@@ -1,0 +1,9 @@
+# Defines the versions of framework dependencies that can't be managed by Conda.
+# These are automatically provisioned for Docker-based targets, but need to be
+# installed and managed manually for native targets like local and HDI clusters.
+
+# For third-party libraries from a package manager, see conda_dependencies.yml.
+
+base_docker_image: null
+spark_version: 2.0.2
+cntk_version: null
