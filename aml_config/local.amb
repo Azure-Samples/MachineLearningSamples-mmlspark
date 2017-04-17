@@ -1,7 +1,5 @@
 {
-  "Description":"Run the project on your local computer.\n
-ML frameworks like Spark need to be managed manually.\n
-Third-party library dependencies are managed through Conda -- to change them, edit conda_dependencies.yml",
+  "Description":"Run the project on your local computer.\nML frameworks like Spark need to be managed manually.\nThird-party library dependencies are managed through Conda -- to change them, edit conda_dependencies.yml",
   "ArgumentVector":[
     "$file"
   ],
