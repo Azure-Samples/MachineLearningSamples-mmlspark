@@ -44,3 +44,4 @@ X_new = [[3.0, 3.6, 1.3, 0.25]]
 print ('New sample: {}'.format(X_new))
 pred = clf2.predict(X_new)
 print ('Predicted class: {}'.format(pred))
+run_logger.metrics.custom_scalar("Predicted Class", pred)
