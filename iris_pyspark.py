@@ -3,9 +3,11 @@ import pandas as pd
 import pyspark
 import os
 import urllib
+
 from pyspark.sql.functions import *
 from pyspark.ml.classification import *
 from pyspark.ml.evaluation import *
+from pyspark.ml.feature import *
 
 # start Spark session
 spark = pyspark.sql.SparkSession.builder.appName('Iris').getOrCreate()
