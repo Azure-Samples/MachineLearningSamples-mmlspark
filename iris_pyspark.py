@@ -12,8 +12,6 @@ from pyspark.ml.feature import *
 # start Spark session
 spark = pyspark.sql.SparkSession.builder.appName('Iris').getOrCreate()
 
-# download Iris dataset
-urllib.request.urlretrieve('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', 'iris.csv')
 # load iris.csv into Spark dataframe
 data = spark.createDataFrame(pd.read_csv('iris.csv', header=None, names=['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']))
 print("First 20 rows of Iris dataset:")
@@ -35,7 +33,7 @@ print("Reading for machine learning")
 data.show(10)
 
 # use Logistic Regression to train on the training set
-train, test = data.randomSplit([0.75, 0.25])
+train, test = data.randomSplit([0.70, 0.30])
 lr = pyspark.ml.classification.LogisticRegression()
 model = lr.fit(train)
 
