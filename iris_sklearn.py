@@ -22,7 +22,7 @@ X, Y = iris.data, iris.target
 # change regularization rate and you will likely get a different accuracy.
 reg = 0.01
 # log the regulizarion rate
-run_logger.metrics.custom_scalar("Regularization", reg)
+run_logger.log("Regularization", reg)
 
 # train a logistic regression model
 clf1 = LogisticRegression(C=1/reg).fit(X, Y)
@@ -32,7 +32,7 @@ accuracy = clf1.score(X, Y)
 print ("Accuracy is {}".format(accuracy))
 
 # log accuracy
-run_logger.metrics.custom_scalar("Accuracy", accuracy)
+run_logger.log("Accuracy", accuracy)
 
 # serialize the model on disk
 print ("Export the model to model.pkl")
@@ -52,4 +52,4 @@ pred = clf2.predict(X_new)
 print ('Predicted class: {}'.format(pred))
 
 # log the predicted class
-run_logger.metrics.custom_scalar("Predicted Class", pred)
+run_logger.log("Predicted Class", pred)
