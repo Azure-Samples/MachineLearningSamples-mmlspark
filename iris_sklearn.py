@@ -34,15 +34,15 @@ print ("Accuracy is {}".format(accuracy))
 # log accuracy
 run_logger.log("Accuracy", accuracy)
 
-# serialize the model on disk
+# serialize the model on disk in the special 'outputs' folder
 print ("Export the model to model.pkl")
-f = open('model.pkl', 'wb')
+f = open('./outputs/model.pkl', 'wb')
 pickle.dump(clf1, f)
 f.close()
 
-# load the model back in memory
+# load the model back from the 'outputs' folder into memory
 print("Import the model from model.pkl")
-f2 = open('model.pkl', 'rb')
+f2 = open('./outputs/model.pkl', 'rb')
 clf2 = pickle.load(f2)
 
 # predict a new sample
