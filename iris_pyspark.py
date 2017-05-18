@@ -3,6 +3,7 @@ import pandas as pd
 import pyspark
 import os
 import urllib
+import sys
 
 from pyspark.sql.functions import *
 from pyspark.ml.classification import *
@@ -11,6 +12,12 @@ from pyspark.ml.feature import *
 
 # start Spark session
 spark = pyspark.sql.SparkSession.builder.appName('Iris').getOrCreate()
+
+# print runtime versions
+print ('****************')
+print ('Python version: {}'.format(sys.version))
+print ('Spark version: {}'.format(spark.version))
+print ('****************')
 
 # load iris.csv into Spark dataframe
 data = spark.createDataFrame(pd.read_csv('iris.csv', header=None, names=['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']))
