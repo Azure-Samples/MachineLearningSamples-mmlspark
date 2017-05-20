@@ -28,7 +28,7 @@ if len(sys.argv) > 1:
 print("Regularization rate is : {}".format(reg))
 
 # log the regulizarion rate
-run_logger.log("Regularization", reg)
+run_logger.log("Regularization Rate", reg)
 
 # train a logistic regression model
 clf1 = LogisticRegression(C=1/reg).fit(X, Y)
