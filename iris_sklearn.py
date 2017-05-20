@@ -21,6 +21,12 @@ X, Y = iris.data, iris.target
 
 # change regularization rate and you will likely get a different accuracy.
 reg = 0.01
+
+if len(sys.argv) > 1:
+    reg = float(sys.argv[1])
+
+print("Regularization rate is : {}".format(reg))
+
 # log the regulizarion rate
 run_logger.log("Regularization", reg)
 
