@@ -21,13 +21,13 @@ X, Y = iris.data, iris.target
 
 # change regularization rate and you will likely get a different accuracy.
 reg = 0.01
-
+# load regularization rate from argument if present
 if len(sys.argv) > 1:
     reg = float(sys.argv[1])
 
-print("Regularization rate is : {}".format(reg))
+print("Regularization rate is {}".format(reg))
 
-# log the regulizarion rate
+# log the regularization rate
 run_logger.log("Regularization Rate", reg)
 
 # train a logistic regression model
@@ -55,4 +55,4 @@ clf2 = pickle.load(f2)
 X_new = [[3.0, 3.6, 1.3, 0.25]]
 print ('New sample: {}'.format(X_new))
 pred = clf2.predict(X_new)
-print ('Predicted class: {}'.format(pred))
+print('Predicted class is {}'.format(pred))

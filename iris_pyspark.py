@@ -10,6 +10,11 @@ from pyspark.ml.classification import *
 from pyspark.ml.evaluation import *
 from pyspark.ml.feature import *
 
+from azureml_sdk import data_collector
+
+# initialize logger
+run_logger = data_collector.current_run() 
+
 # start Spark session
 spark = pyspark.sql.SparkSession.builder.appName('Iris').getOrCreate()
 
@@ -39,9 +44,18 @@ data = data.select(['features', 'label'])
 print("Reading for machine learning")
 data.show(10)
 
+# change regularization rate and you will likely get a different accuracy.
+reg = 0.01
+# load regularization rate from argument if present
+if len(sys.argv) > 1:
+    reg = float(sys.argv[1])
+
+# log regularization rate
+run_logger.log("Regularization Rate", reg)
+
 # use Logistic Regression to train on the training set
 train, test = data.randomSplit([0.70, 0.30])
-lr = pyspark.ml.classification.LogisticRegression()
+lr = pyspark.ml.classification.LogisticRegression(regParam=reg)
 model = lr.fit(train)
 
 # predict on the test set
@@ -55,6 +69,10 @@ accuracy = evaluator.evaluate(prediction)
 
 print()
 print('#####################################')
-print ("Accuracy is {}".format(accuracy))
+print('Regularization rate is {}'.format(reg))
+print("Accuracy is {}".format(accuracy))
 print('#####################################')
 print()
+
+# log accuracy
+run_logger.log('Accuracy', accuracy)
