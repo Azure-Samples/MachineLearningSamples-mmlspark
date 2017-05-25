@@ -1,5 +1,5 @@
 # run iris_sklearn.py with descending regularization rates
-# run this with Python, NOT az ml execute if you want to execute this in Docker or remotely.
+# run this with just "python run.py". It will fail if you run using az ml execute.
 
 import os
 
