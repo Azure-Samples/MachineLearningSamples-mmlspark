@@ -1,5 +1,5 @@
 address: "IP_ADDRESS"
 username: "USER"
 password: "PASSWORD"
-cluster: False
-native: False
+type: virtualmachine
+baseDockerImage: null
