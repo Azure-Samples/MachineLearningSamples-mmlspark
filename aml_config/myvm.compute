@@ -1,5 +1,0 @@
-address: "IP_ADDRESS"
-username: "USER"
-password: "PASSWORD"
-type: virtualmachine
-baseDockerImage: null

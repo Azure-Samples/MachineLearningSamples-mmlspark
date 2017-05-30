@@ -1,4 +1,0 @@
-address: "CLUSTER.azurehdinsight.net"
-username: "sshuser"
-password: "PASSWORD"  
-type: cluster
