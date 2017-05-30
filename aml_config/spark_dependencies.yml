@@ -2,7 +2,6 @@
 # this file will be automatically provisioned for each run that uses Spark.
 
 # For third-party python libraries, see conda_dependencies.yml.
-# For frameworks that can't be installed by Conda, see base_dependencies.yml.
 
 configuration: {}
 repositories:
@@ -10,4 +9,4 @@ repositories:
 packages:
   - group: "com.microsoft.azureml"
     artifact: "azureml-sdk_2.11"
-    version: "1.0.0421"
+    version: "1.0.0427"
