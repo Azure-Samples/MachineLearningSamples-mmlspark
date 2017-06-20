@@ -1,3 +1,6 @@
+# This PySpark code uses mmlspark library.
+# It is much simpler comparing to the regular Spark ML version.
+
 import numpy as np
 import pandas as pd
 import pyspark

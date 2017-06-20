@@ -2,8 +2,9 @@
 
 import os
 
-# Parameter sweep on regularization rate
+# Sequential parameter sweep on regularization rate. No parallelism. 
 reg = 10
 while reg > 0.01:
     os.system('az ml execute start -t docker ./train_mmlspark.py {}'.format(reg))
+    #os.system('az ml execute start -t docker ./train_sparkml.py {}'.format(reg))
     reg = reg / 2.0
