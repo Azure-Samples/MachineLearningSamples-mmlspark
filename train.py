@@ -30,21 +30,21 @@ data = spark.createDataFrame(pd.read_csv(dataFile, dtype={" hours-per-week": np.
 data = data.select([" education", " marital-status", " hours-per-week", " income"])
 
 # Split data into train and test.
-train, test = data.randomSplit([0.75, 0.25])
+train, test = data.randomSplit([0.75, 0.25], seed=123)
 
 print("********* TRAINING DATA ***********")
 print(train.limit(10).toPandas())
 
-hashSize = 256
-# reset hash size if it is passed in as an argument
+reg = 0.1
+# Load Regularization Rate from argument
 if len(sys.argv) > 1:
-    hashSize = int(sys.argv[1])
-print("Hash size is {}.".format(hashSize))
+    reg = float(sys.argv[1])
+print("Regularization Rate is {}.".format(reg))
 
 # Use TrainClassifier in mmlspark to train a logistic regression model. Notice that we don't have to do any one-hot encoding, or vectorization. 
 # We also don't need to convert the label column from string to binary. mmlspark does those all these tasks for us.
-model = TrainClassifier(model=LogisticRegression(), labelCol=" income", numFeatures=hashSize).fit(train)
-run_logger.log("NumOfFeatures", hashSize)
+model = TrainClassifier(model=LogisticRegression(maxIter=10, regParam=reg, elasticNetParam=0.8), labelCol=" income", numFeatures=hashSize).fit(train)
+run_logger.log("Regularization Rate", reg)
 
 # predict on the test dataset
 prediction = model.transform(test)
