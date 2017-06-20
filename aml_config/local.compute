@@ -1,3 +1,0 @@
-type: "local"
-pythonLocation: "python"
-sparkSubmitLocation: "spark-submit"
