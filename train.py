@@ -63,7 +63,7 @@ run_logger.log("Accuracy", metrics.collect()[0]['accuracy'])
 run_logger.log("AUC", metrics.collect()[0]['AUC'])
 
 print("******** SAVE THE MODEL ***********")
-model.write().overwrite().save(".outputs/AdultCensus.mml")
+model.write().overwrite().save("./outputs/AdultCensus.mml")
 
 # save model in wasb if running in HDI.
 #model.write().overwrite().save("wasb:///models/AdultCensus.mml")
