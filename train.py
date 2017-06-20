@@ -43,7 +43,7 @@ print("Regularization Rate is {}.".format(reg))
 
 # Use TrainClassifier in mmlspark to train a logistic regression model. Notice that we don't have to do any one-hot encoding, or vectorization. 
 # We also don't need to convert the label column from string to binary. mmlspark does those all these tasks for us.
-model = TrainClassifier(model=LogisticRegression(maxIter=10, regParam=reg, elasticNetParam=0.8), labelCol=" income", numFeatures=hashSize).fit(train)
+model = TrainClassifier(model=LogisticRegression(maxIter=10, regParam=reg, elasticNetParam=0.8), labelCol=" income", numFeatures=256).fit(train)
 run_logger.log("Regularization Rate", reg)
 
 # predict on the test dataset
