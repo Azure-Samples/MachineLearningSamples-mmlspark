@@ -5,8 +5,8 @@
 
 configuration: {}
 repositories:
-  - "https://azuremlbuild.blob.core.windows.net/maven"
+  - "https://mmlspark.azureedge.net/maven"
 packages:
   - group: "com.microsoft.ml.spark"
     artifact: "mmlspark_2.11"
-    version: "0.4"
+    version: "0.5"
