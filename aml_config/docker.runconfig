@@ -6,5 +6,6 @@
   "CondaFile":null,
   "ManagedEnvironment":true,
   "TrackedRun":true,
-  "Target":"docker"
+  "Target":"docker",
+  "PrepareEnvironment":true
 }
