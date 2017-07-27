@@ -13,7 +13,7 @@ from pyspark.ml.feature import OneHotEncoder, StringIndexer
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
 
-from azureml_sdk import data_collector
+from azureml.sdk import data_collector
 
 # create the outputs folder
 os.makedirs('./outputs', exist_ok=True)
