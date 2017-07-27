@@ -12,7 +12,7 @@ import mmlspark
 from mmlspark.TrainClassifier import TrainClassifier
 from mmlspark.ComputeModelStatistics import ComputeModelStatistics
 
-from azureml_sdk import data_collector
+from azureml.sdk import data_collector
 
 # create the outputs folder
 os.makedirs('./outputs', exist_ok=True)
