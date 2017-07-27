@@ -7,6 +7,6 @@
   "ManagedEnvironment":true,
   "TrackedRun":true,
   "Target":"docker",
-  "PrepareEnvironment":true.
+  "PrepareEnvironment":true,
   "Framework":"PySpark"
 }
