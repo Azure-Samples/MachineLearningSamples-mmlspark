@@ -9,25 +9,25 @@ For more details on configuring execution targets, go to: http://aka.ms/vienna-d
 
 Run train_mmlspark.py in a local Docker container.
 ```
-$ az ml execute start -c docker train_mmlspark.py 0.1
+$ az ml experiment submit -c docker train_mmlspark.py 0.1
 ```
 
 Create myvm.compute file to point to a remove VM
 ```
-$ az ml computecontext attach --name <myvm> --address <ip address or FQDN> --username <username> --password <pwd>
+$ az ml computetarget attach --name <myvm> --address <ip address or FQDN> --username <username> --password <pwd>
 ```
 
 Run train_mmlspark.py in a Docker container (with Spark) in a remote VM:
 ```
-$ az ml execute start -c myvm train_mmlspark.py 0.3
+$ az ml experiment submit -c myvm train_mmlspark.py 0.3
 ```
 
 Create myhdi.compute to point to an HDI cluster
 ```
-$ az ml computecontext attach --name <myhdi> --address <ip address or FQDN of the head node> --username <username> --password <pwd> --cluster
+$ az ml computetarget attach --name <myhdi> --address <ip address or FQDN of the head node> --username <username> --password <pwd> --cluster
 ```
 
 Run it in a remote HDInsight cluster:
 ```
-$ az ml execute start -c myhdi train_mmlspark.py 0.5
+$ az ml experiment submit -c myhdi train_mmlspark.py 0.5
 ```
