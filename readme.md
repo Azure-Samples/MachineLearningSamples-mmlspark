@@ -4,8 +4,7 @@ This sample demonstrates the power of simplification by implementing a binary cl
 using the popular Adult Census dataset, first with mmlspark library then comparing that with
 the standad Spark ML constructs. 
 
-To learn more about mmlspark library, please visit: http://github.com/azure/mmlspark
-For more details on configuring execution targets, go to: http://aka.ms/vienna-docs-exec
+To learn more about mmlspark library, please visit: http://github.com/azure/mmlspark.
 
 Run train_mmlspark.py in a local Docker container.
 ```
