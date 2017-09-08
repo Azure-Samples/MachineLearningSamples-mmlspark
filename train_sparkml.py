@@ -13,13 +13,13 @@ from pyspark.ml.feature import OneHotEncoder, StringIndexer
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
 
-from azureml.sdk import data_collector
+from azureml.logging import get_azureml_logger
 
 # create the outputs folder
 os.makedirs('./outputs', exist_ok=True)
 
 # Initialize the logger
-run_logger = data_collector.current_run() 
+run_logger = get_azureml_logger() 
 
 # Start Spark application
 spark = pyspark.sql.SparkSession.builder.appName("Adult Census Income").getOrCreate()
