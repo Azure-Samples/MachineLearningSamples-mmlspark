@@ -1,2 +1,2 @@
 type: "localdocker"
-baseDockerImage: "microsoft/mmlspark:plus-0.7.9"
+baseDockerImage: "microsoft/mmlspark:plus-0.7.91"
