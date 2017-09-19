@@ -11,17 +11,12 @@ from pyspark.ml.classification import LogisticRegression
 from mmlspark.TrainClassifier import TrainClassifier
 from mmlspark.ComputeModelStatistics import ComputeModelStatistics
 
-<<<<<<< HEAD
 from azureml.logging import get_azureml_logger
 
 # create the outputs folder
 os.makedirs('./outputs', exist_ok=True)
 
 # Initialize the logger
-=======
-# Initialize the logger
-from azureml.logging import get_azureml_logger
->>>>>>> 1aff16e292d0a2389e4877ec7c1a3b101fbbc25a
 run_logger = get_azureml_logger() 
 
 # Start Spark application
