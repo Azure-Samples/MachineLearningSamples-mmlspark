@@ -42,9 +42,9 @@ Run train_mmlspark.py in a local Docker container.
 $ az ml experiment submit -c docker train_mmlspark.py 0.1
 ```
 
-Create myvm.compute file to point to a remove VM
+Configure a compute environment `myvm` targeting a Docker container running on a remove VM.
 ```
-$ az ml computetarget attach --name <myvm> --address <ip address or FQDN> --username <username> --password <pwd> --type remotedocker
+$ az ml computetarget attach --name myvm --address <ip address or FQDN> --username <username> --password <pwd> --type remotedocker
 ```
 
 Run train_mmlspark.py in a Docker container (with Spark) in a remote VM:
@@ -52,9 +52,9 @@ Run train_mmlspark.py in a Docker container (with Spark) in a remote VM:
 $ az ml experiment submit -c myvm train_mmlspark.py 0.3
 ```
 
-Create myhdi.compute to point to an HDI cluster
+Configure a compute environment `myvm` targeting an HDInsight Spark cluster.
 ```
-$ az ml computetarget attach --name <myhdi> --address <ip address or FQDN of the head node> --username <username> --password <pwd> --type cluster
+$ az ml computetarget attach --name myhdi --address <ip address or FQDN of the head node> --username <username> --password <pwd> --type cluster
 ```
 
 Run it in a remote HDInsight cluster:
