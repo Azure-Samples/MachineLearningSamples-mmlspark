@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-ArgumentVector:
-  - "$file"
-Target: "docker"
-EnvironmentVariables:
-  "EXAMPLE_ENV_VAR": "Example Value"
-Framework: "PySpark"
-CondaDependenciesFile: "aml_config/conda_dependencies.yml"
-SparkDependenciesFile: "aml_config/spark_dependencies.yml"
-PrepareEnvironment: true
-=======
 # The program name and arguments to run when they aren't specified through
 # other means. The $file token is replaced with the currently selected file
 # by the Workbench application.
@@ -42,5 +31,4 @@ PrepareEnvironment: true
 
 # Enable history tracking -- this allows status, logs, metrics, and outputs
 # to be collected by Azure ML Workbench and uploaded to the cloud project.
->>>>>>> 1aff16e292d0a2389e4877ec7c1a3b101fbbc25a
 TrackedRun: true
