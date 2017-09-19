@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-type: "localdocker"
-baseDockerImage: "microsoft/mmlspark:plus-0.7.91"
-=======
 # Defines a localdocker compute target that uses a local Docker container.
 type: "localdocker"
 
@@ -22,4 +18,4 @@ sharedVolumes: false
 # on the same target. This specifies the base path for those directories.
 # Note that this is not available if sharedVolumes is false.
 nativeSharedDirectory: "~/.azureml/share/"
->>>>>>> 1aff16e292d0a2389e4877ec7c1a3b101fbbc25a
+
