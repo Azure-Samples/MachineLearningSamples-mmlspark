@@ -8,17 +8,12 @@ import os
 import requests
 
 from pyspark.ml.classification import LogisticRegression
-import mmlspark
 from mmlspark.TrainClassifier import TrainClassifier
 from mmlspark.ComputeModelStatistics import ComputeModelStatistics
 
-from azureml.sdk import data_collector
-
-# create the outputs folder
-os.makedirs('./outputs', exist_ok=True)
-
 # Initialize the logger
-run_logger = data_collector.current_run() 
+from azureml.logging import get_azureml_logger
+run_logger = get_azureml_logger() 
 
 # Start Spark application
 spark = pyspark.sql.SparkSession.builder.appName("Adult Census Income").getOrCreate()
@@ -67,6 +62,9 @@ print("AUC is {}.".format(metrics.collect()[0]['AUC']))
 # Log the metrics
 run_logger.log("Accuracy", metrics.collect()[0]['accuracy'])
 run_logger.log("AUC", metrics.collect()[0]['AUC'])
+
+# create the outputs folder
+os.makedirs('./outputs', exist_ok=True)
 
 print("******** SAVE THE MODEL ***********")
 model.write().overwrite().save("./outputs/AdultCensus.mml")
