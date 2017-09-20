@@ -1,14 +1,14 @@
 # Using MMLSpark to classify adult income level
 
-This sample demonstrates the power of simplification by implementing a binary classfier using the popular Adult Census dataset, first with the open-source _mmlspark_ Spark package then comparing that with the standad Spark ML constructs. 
+This sample demonstrates the power of simplification by implementing a binary classfier using the popular Adult Census dataset, first with the open-source _mmlspark_ Spark package then comparing that with the standad _Spark ML_ constructs. 
 
 ## mmlspark vs. Spark ML
-As a quick comparision, here is the one-line training code using _mmlspark_:
+As a quick comparision, here is the one-line training code using _mmlspark_, clean and simple:
 ```python
 model = TrainClassifier(model=LogisticRegression(regParam=reg), labelCol=" income", numFeatures=256).fit(train)
 ```
 
-And here is the equivalent code in standard Spark ML:
+And here is the equivalent code in standard _Spark ML_. Notice the one-hot encoding, string-indexing and vectorization that you have to do on the training data:
 ```python
 # create a new Logistic Regression model.
 lr = LogisticRegression(regParam=reg)
