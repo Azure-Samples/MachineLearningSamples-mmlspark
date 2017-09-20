@@ -68,8 +68,11 @@ Run it in a remote HDInsight cluster:
 $ az ml experiment submit -c myhdi train_mmlspark.py 0.5
 ```
 
-## Create a web service using the sparkmml model
+## Create a web service using the MMLSpark model
 Get the run id of the train_mmlspark.py job from run history.
+```
+$ az ml history list -o table
+```
 
 ### Get the model file(s)
 And promote the trained model using the run id.
