@@ -75,3 +75,16 @@ model.write().overwrite().save("./outputs/AdultCensus.mml")
 
 # save model in wasb if running in HDI.
 #model.write().overwrite().save("wasb:///models/AdultCensus.mml")
+
+# create web service schema
+from azureml.api.schema.dataTypes import DataTypes
+from azureml.api.schema.sampleDefinition import SampleDefinition
+from azureml.api.realtime.services import generate_schema
+
+# Define the input dataframe
+sample = spark.createDataFrame([('10th','Married-civ-spouse',35.0)],[' education',' marital-status',' hours-per-week'])
+inputs = {"input_df": SampleDefinition(DataTypes.SPARK, sample)}
+
+# Create the schema file (service_schema.json) the the output folder.
+import score_mmlspark
+generate_schema(run_func=score_mmlspark.run, inputs=inputs, filepath='./outputs/service_schema.json')
