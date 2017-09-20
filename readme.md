@@ -45,6 +45,7 @@ $ az ml experiment submit -c docker train_mmlspark.py 0.1
 Configure a compute environment `myvm` targeting a Docker container running on a remove VM.
 ```
 $ az ml computetarget attach --name myvm --address <ip address or FQDN> --username <username> --password <pwd> --type remotedocker
+
 # prepare the environment
 $ az ml experiment prepare -c myvm
 ```
@@ -57,6 +58,7 @@ $ az ml experiment submit -c myvm train_mmlspark.py 0.3
 Configure a compute environment `myvm` targeting an HDInsight Spark cluster.
 ```
 $ az ml computetarget attach --name myhdi --address <ip address or FQDN of the head node> --username <username> --password <pwd> --type cluster
+
 # prepare the environment
 $ az ml experiment prepare -c myhdi
 ```
