@@ -67,3 +67,69 @@ Run it in a remote HDInsight cluster:
 ```
 $ az ml experiment submit -c myhdi train_mmlspark.py 0.5
 ```
+
+## Create a web service using the sparkmml model
+Get the run id of the train_mmlspark.py job from run history.
+
+### Get the model file(s)
+And promote the trained model using the run id.
+
+```azurecli
+$ az ml history promote -ap ./outputs/AdultCensus.mml -n AdultCensusModel -r <run id>
+```
+Download the model to a directory.
+
+```azurecli
+$ az ml asset download -l ./assets/AdultCensusModel.link -d mmlspark_model
+```
+**Note**: The download step may fail if file paths within project folder become too long. If that happens, create the project closer to file system root, for example C:/AzureML/Income.
+
+### Create web service schema
+
+Promote the schema file
+
+```azurecli
+$ az ml history promote -ap ./outputs/service_schema.json -n service_schema.json -r <run id>
+```
+
+Download the schema
+
+```azurecli
+$ az ml asset download -l ./assets/service_schema.json.link -d mmlspark_schema
+```
+
+### Test the scoring file's init and run functions 
+
+Run score_mmlspark.py in local Docker. Check the output of the job for results.
+```
+$ az ml experiment submit -c docker score_mmlspark.py
+```
+
+### Set the environment
+If you have not set up a Model Managment deployment environment, see the [Set up Model Managment](https://docs.microsoft.com/azure/machine-learning/services/deployment-setup-configuration)  document under Deploy Models on the documenation page.
+
+If you have already setup an environment, look up it's name and resource group:
+
+```azurecli
+$ az ml env list
+```
+
+Set the deployment environment:
+
+```azurecli
+$ az ml env set -n <environment cluster name> -g <resource group>
+```
+
+### Deploy the web service
+
+Deploy the web service
+
+```azurecli
+az ml service create realtime -f score_mmlspark.py -m mmlspark_model -s mmlspark_schema/service_schema.json -r spark-py -n mmlsparkservice -c aml_config/conda_dependencies.yml
+```
+
+Use the Sample CLI command from the output of the previous call to test the web service.
+
+```azurecli
+az ml service run realtime -i mmlsparkservice -d '{\"input_df\": [{\" hours-per-week\": 35.0, \" education\": \"10th\", \" marital-status\": \"Married-civ-spouse\"}]}'
+```
