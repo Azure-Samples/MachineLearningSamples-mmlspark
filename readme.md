@@ -128,11 +128,11 @@ $ az ml env set -n <environment cluster name> -g <resource group>
 Deploy the web service
 
 ```azurecli
-az ml service create realtime -f score_mmlspark.py -m mmlspark_model -s mmlspark_schema/service_schema.json -r spark-py -n mmlsparkservice -c aml_config/conda_dependencies.yml
+$ az ml service create realtime -f score_mmlspark.py -m mmlspark_model -s mmlspark_schema/service_schema.json -r spark-py -n mmlsparkservice -c aml_config/conda_dependencies.yml
 ```
 
 Use the Sample CLI command from the output of the previous call to test the web service.
 
 ```azurecli
-az ml service run realtime -i mmlsparkservice -d '{\"input_df\": [{\" hours-per-week\": 35.0, \" education\": \"10th\", \" marital-status\": \"Married-civ-spouse\"}]}'
+$ az ml service run realtime -i mmlsparkservice -d '{\"input_df\": [{\" hours-per-week\": 35.0, \" education\": \"10th\", \" marital-status\": \"Married-civ-spouse\"}]}'
 ```
