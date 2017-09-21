@@ -134,5 +134,5 @@ $ az ml service create realtime -f score_mmlspark.py -m mmlspark_model -s mmlspa
 Use the Sample CLI command from the output of the previous call to test the web service.
 
 ```azurecli
-$ az ml service run realtime -i mmlsparkservice -d '{\"input_df\": [{\" hours-per-week\": 35.0, \" education\": \"10th\", \" marital-status\": \"Married-civ-spouse\"}]}'
+$ az ml service run realtime -i mmlsparkservice -d "{\"input_df\": [{\" hours-per-week\": 35.0, \" education\": \"10th\", \" marital-status\": \"Married-civ-spouse\"}]}"
 ```
