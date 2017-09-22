@@ -13,8 +13,20 @@ from mmlspark.ComputeModelStatistics import ComputeModelStatistics
 
 from azureml.logging import get_azureml_logger
 
-# create the outputs folder
-os.makedirs('./outputs', exist_ok=True)
+def plot_roc(true_y,predict_y):
+    fpr,tpr, thresh = roc_curve(true_y,predict_y)
+    try:
+        import matplotlib
+        matplotlib.use('agg')
+        matplotlib.rcParams.update({'font.size':16})
+        import matplotlib.pyplot as plt
+        plt.plot(fpr,tpr,label='ROC Curve',color='blue')
+        plt.xlabel('False Positive Rate')
+        plt.ylabel('True Positive Rate')
+        plt.legend(loc='lower right')
+        plt.savefig('./outputs/roc.png')
+    except:
+        print('Could not plot.')
 
 # Initialize the logger
 run_logger = get_azureml_logger() 
@@ -69,6 +81,12 @@ run_logger.log("AUC", metrics.collect()[0]['AUC'])
 
 # create the outputs folder
 os.makedirs('./outputs', exist_ok=True)
+
+# Plot ROC curve
+localPrediction = prediction.select(' income','scored_probabilities').toPandas()
+y_true = localPrediction[' income'] == ' >50K'
+y_pred = [elem[1] for elem in localPrediction['scored_probabilities']]
+plot_roc(y_true,y_pred)
 
 print("******** SAVE THE MODEL ***********")
 model.write().overwrite().save("./outputs/AdultCensus.mml")
