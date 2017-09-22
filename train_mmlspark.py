@@ -7,6 +7,7 @@ import pyspark
 import os
 import requests
 
+from sklearn.metrics import roc_curve
 from pyspark.ml.classification import LogisticRegression
 from mmlspark.TrainClassifier import TrainClassifier
 from mmlspark.ComputeModelStatistics import ComputeModelStatistics
