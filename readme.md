@@ -109,7 +109,7 @@ $ az ml experiment submit -c docker score_mmlspark.py
 ```
 
 ### Set the environment
-If you have not set up a Model Managment deployment environment, see the [Set up Model Managment](https://docs.microsoft.com/azure/machine-learning/services/deployment-setup-configuration)  document under Deploy Models on the documenation page.
+If you have not set up a Model Managment deployment environment, see the [Set up Model Managment](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration) document under Deploy Models on the documenation page.
 
 If you have already setup an environment, look up it's name and resource group:
 
