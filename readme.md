@@ -1,6 +1,6 @@
 # Using MMLSpark to classify adult income level
 
-This sample demonstrates the power of simplification by implementing a binary classfier using the popular Adult Census dataset, first with the open-source _mmlspark_ Spark package then comparing that with the standad _Spark ML_ constructs. 
+This sample demonstrates the power of simplification by implementing a binary classifier using the popular Adult Census dataset, first with the open-source _mmlspark_ Spark package then comparing that with the standard _Spark ML_ constructs. 
 
 ## mmlspark vs. Spark ML
 As a quick comparision, here is the one-line training code using _mmlspark_, clean and simple:
@@ -109,7 +109,7 @@ $ az ml experiment submit -c docker score_mmlspark.py
 ```
 
 ### Set the environment
-If you have not set up a Model Managment deployment environment, see the [Set up Model Managment](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration) document under Deploy Models on the documenation page.
+If you have not set up a Model Management deployment environment, see the [Set up Model Managment](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration) document under Deploy Models on the documentation page.
 
 If you have already setup an environment, look up it's name and resource group:
 
