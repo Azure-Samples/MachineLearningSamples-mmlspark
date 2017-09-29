@@ -42,7 +42,7 @@ Run train_mmlspark.py in a local Docker container.
 $ az ml experiment submit -c docker train_mmlspark.py 0.1
 ```
 
-Configure a compute environment `myvm` targeting a Docker container running on a remove VM.
+Configure a compute environment `myvm` targeting a Docker container running on a remote VM.
 ```
 $ az ml computetarget attach --name myvm --address <ip address or FQDN> --username <username> --password <pwd> --type remotedocker
 
