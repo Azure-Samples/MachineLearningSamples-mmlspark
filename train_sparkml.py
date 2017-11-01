@@ -22,7 +22,7 @@ os.makedirs('./outputs', exist_ok=True)
 run_logger = get_azureml_logger() 
 
 # Start Spark application
-spark = pyspark.sql.SparkSession.builder.appName("Adult Census Income").getOrCreate()
+spark = pyspark.sql.SparkSession.getOrCreate()
 
 # Download AdultCensusIncome.csv from Azure CDN. This file has 32,561 rows.
 dataFile = "AdultCensusIncome.csv"
