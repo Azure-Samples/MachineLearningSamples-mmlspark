@@ -33,7 +33,7 @@ def plot_roc(true_y,predict_y):
 run_logger = get_azureml_logger() 
 
 # Start Spark application
-spark = pyspark.sql.SparkSession.buidler.getOrCreate()
+spark = pyspark.sql.SparkSession.builder.getOrCreate()
 
 # Download AdultCensusIncome.csv from Azure CDN. This file has 32,561 rows.
 dataFile = "AdultCensusIncome.csv"
