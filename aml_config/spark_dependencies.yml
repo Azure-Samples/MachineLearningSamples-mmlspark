@@ -11,6 +11,7 @@ configuration:
 # Repositories to search for the specified Spark packages.
 repositories:
   - "https://mmlspark.azureedge.net/maven"
+  - "https://azuremlbuild.blob.core.windows.net/maven"
 
 # Spark packages to include in the run.
 packages:
@@ -28,3 +29,7 @@ packages:
   - group: "com.microsoft.sqlserver"
     artifact: "mssql-jdbc"
     version: "6.2.1.jre8"
+  # Logging package for MMLSpark to integrate into Azure ML WB Run History
+  - group: "com.microsoft.moduleslogging"
+    artifact: "modules-logging_2.11"
+    version: "1.0.0024"

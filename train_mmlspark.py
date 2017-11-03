@@ -35,6 +35,9 @@ run_logger = get_azureml_logger()
 # Start Spark application
 spark = pyspark.sql.SparkSession.builder.getOrCreate()
 
+# Configure log4j to send metrics to azureml logging
+spark._jvm.org.apache.log4j.PropertyConfigurator.configure(os.getcwd() + "/log4j.properties")
+
 # Download AdultCensusIncome.csv from Azure CDN. This file has 32,561 rows.
 dataFile = "AdultCensusIncome.csv"
 if not os.path.isfile(dataFile):
@@ -75,10 +78,6 @@ print("Accuracy is {}.".format(metrics.collect()[0]['accuracy']))
 print("Precision is {}.".format(metrics.collect()[0]['precision']))
 print("Recall is {}.".format(metrics.collect()[0]['recall']))
 print("AUC is {}.".format(metrics.collect()[0]['AUC']))
-
-# Log the metrics
-run_logger.log("Accuracy", metrics.collect()[0]['accuracy'])
-run_logger.log("AUC", metrics.collect()[0]['AUC'])
 
 # create the outputs folder
 os.makedirs('./outputs', exist_ok=True)
