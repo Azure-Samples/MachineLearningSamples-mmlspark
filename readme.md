@@ -47,16 +47,16 @@ To add the modules logging package:
 1. Add a `log4j.properties` file to use the `AmlAppender` and `AmlLayout`
 
 2. Add the modules logging package to `spark_dependencies.yml` file:
-```yaml
+  ```yaml
   - group: "com.microsoft.moduleslogging"
     artifact: "modules-logging_2.11"
     version: "1.0.0024"
-```
+  ```
 
-3.) Configure `log4j` to use the `log4j.properties` file in train_mmlspark.py:
-```python
-    spark._jvm.org.apache.log4j.PropertyConfigurator.configure(os.getcwd() + "/log4j.properties")
-```
+3. Configure `log4j` to use the `log4j.properties` file in train_mmlspark.py:
+  ```python
+  spark._jvm.org.apache.log4j.PropertyConfigurator.configure(os.getcwd() + "/log4j.properties")
+  ```
 
 ## Run this sample:
 Run train_mmlspark.py in a local Docker container.
