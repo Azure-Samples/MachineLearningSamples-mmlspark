@@ -1,5 +1,7 @@
 # Using MMLSpark to classify adult income level
 
+> **NOTE** This content is no longer maintained. Visit the [Azure Machine Learning Notebook](https://github.com/Azure/MachineLearningNotebooks) project for sample Jupyter notebooks for ML and deep learning with Azure Machine Learning.
+
 This sample demonstrates the power of simplification by implementing a binary classifier using the popular Adult Census dataset, first with the open-source _mmlspark_ Spark package then comparing that with the standard _Spark ML_ constructs. 
 
 ## mmlspark vs. Spark ML
